@@ -28,13 +28,12 @@ func ScrapeFacts() []Fact {
 			ID:   factId,
 			Fact: dogFact,
 		}
-		//adding everything found into the slice
 		allFacts = append(allFacts, fact)
 	})
 
 	collector.OnRequest(func(request *colly.Request) {
 		fmt.Println("Visiting", request.URL.String())
 	})
-
+	collector.Visit("https://www.factretriever.com/dog-facts")
 	return allFacts
 }

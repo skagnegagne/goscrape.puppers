@@ -20,10 +20,10 @@ type Fact struct {
 func main() {
 
 	Router := MountRoutes()
+	log.Println("Running on Port 3000")
 	if err := http.ListenAndServe(":3000", Router); err != nil {
 		log.Fatal(err)
 	}
-	log.Println("Running on port 3000")
 }
 
 //converting fact slice to JSON data
